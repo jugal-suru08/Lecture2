@@ -1,0 +1,303 @@
+
+// let pg1= {
+// balance : 0,
+//  lt : 0,
+
+// };
+// function deposit(amount) {
+//     if (amount > 0)
+//     pg1.balance += amount;
+//     pg1.lt=amount;
+// }
+
+// function widraw(amount) {
+//     if (amount <= pg1.balance && amount > 0)
+//     pg1.balance -= amount;
+//     pg1.lt = -amount;
+//     pg1.widrawedamount = amount
+// }
+
+// function statment() {
+//     console.log("Balance:"+ pg1.balance);
+//     console.log("Last Transaction:"+ pg1.lt);
+//     console.log("Widrwed Amount:"+ pg1.widrawedamount);
+// }
+
+// deposit(100);
+// statment();
+// widraw(50);
+// statment();
+
+// We have created an simple object and 3 functions and executed them
+
+//------------------------------------------------------------------
+
+// var pg1 = {
+//     balance : 0,
+//     lt : 0,
+//     deposit : deposit1,
+//     witdraw : witdraw1,
+//     statement : statement1 
+// };
+
+// var pg2 = {
+//     balance : 0,
+//     lt : 0,
+//     deposit : deposit2,
+//     witdraw : witdraw2,
+//     statement : statement2 
+// };
+
+
+// function deposit1(amount) {
+//         if (amount > 0)
+//         pg1.balance += amount;
+//         pg1.lt=amount;
+
+// }
+
+// function deposit2(amount) {
+//     if (amount > 0)
+//     pg2.balance += amount;
+//     pg2.lt=amount;
+
+// }
+
+// Here we have created two ojects (two piggybanks) and their deposit functions and,
+// mapped them with their respective objects(piggybanks)
+// Function is itself an obeject hence it is called object mapping.
+
+//----------------------------------------------------------------------------------------------------
+// var pg1 = {
+//     balance : 0,
+//     lt : 0,
+//     deposit : deposit1,
+//     witdraw : witdraw1,
+//     statement : statement1 
+// };
+
+// var pg2 = {
+//     balance : 0,
+//     lt : 0,
+//     deposit : deposit2,
+//     witdraw : witdraw2,
+//     statement : statement2 
+// };
+
+// function deposit(pg, amount) {
+//     pg.balance += amount;
+//        pg.lt=amount;
+
+// }
+
+// function widraw(pg, amount) {
+//     pg.balance -= amount;
+//        pg.lt=-amount;
+// }
+
+// Here we have created different variables (data, knowing resposibilites) and single function deposit (doing resposibility) 
+// and one function can be used by n number of variables (objects).
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
+// var pg1 ={
+//     balance : 0,
+//     //lt : 0,
+//     deposit : deposit,
+   
+//     statement : statement
+
+// };
+
+// var pg2 ={
+//     balance : 0,
+//     //lt : 0,
+//     deposit : deposit,
+    
+//     statement : statement
+
+// };
+
+// function deposit(amount) {
+    
+//     this.balance += amount;
+//     this.lt = amount;
+// }
+
+// function statement() {
+//     console.log("Balance =" + this.balance);
+// }   console.log("Last Transaction =" + this.lt);
+
+// pg1.deposit(100);
+// pg1.statement();
+// pg2.deposit(200);
+// pg2.statement();
+
+// Here we have used this keyword because it refers to the object which is calling the function (deposit) We have successfully mapped 
+// one function with multiple objects(piggybanks) 
+
+// -------------------------------------------------------------------------------------------------------------------------------
+
+
+// function deposit(amount)
+// {   if (amount > 0)
+//     this.balance += amount;
+//     this.lt = amount;
+    
+// }
+
+// function withdraw(amount)
+// {
+//    if (this.balance >= this.amount)
+//    this.balance -= amount;
+//    this.lt = -amount;
+   
+// } 
+
+// function statement() {
+//     console.log("Balance =" + this.balance);
+//     console.log("Last Transaction =" + this.lt);
+//     console.log("Remaining Amount=" +this.remainingAmount)
+// }
+
+// var base = {
+
+//     deposit : deposit,
+//     withdraw :withdraw,
+//     statement : statement
+
+// };
+
+//  var pg1 ={
+//     balance : 0,
+//     lt : 0,
+    
+//     __proto__ : base
+//  }
+
+//  var pg2 ={
+//    balance : 0,
+//    lt : 0,
+   
+//    __proto__ : base
+// }
+
+// pg1.deposit(100);
+// pg1.statement()
+// pg1.withdraw(40);
+// pg1.statement()
+
+
+// Here we have successfully done inheritance
+//---------------------------------------------------------------------------------------------------------------------
+// function deposit(amount)
+// {   if (amount > 0)
+//     this.balance += amount;
+//     this.lt = amount;
+    
+// }
+
+// function withdraw(amount)
+// {
+//    if (this.balance >= this.amount)
+//    this.balance -= amount;
+//    this.lt = -amount;
+   
+// } 
+
+// function statement() {
+//     console.log("Balance =" + this.balance);
+//     console.log("Last Transaction =" + this.lt);
+    
+// }
+// function Piggybank() {
+//   var obj = {
+//     balance : 0,
+//     lt : 0,
+//     deposit : deposit,
+//     withdraw : withdraw,
+//     statement : statement,
+//   };
+//   return obj;
+// }
+
+// var pg1 = Piggybank();
+
+// pg1.deposit(100);
+// pg1.statement()
+// pg1.withdraw(40);
+// pg1.statement()
+
+// Here we have used a factory function to create multiple objects through single function 
+//---------------------------------------------------------------------------------------------------------
+
+
+// function deposit(amount)
+// {   if (amount > 0)
+//     this.balance += amount;
+//     this.lt = amount;
+    
+// }
+
+// function withdraw(amount)
+// {
+//    if (this.balance >= this.amount)
+//    this.balance -= amount;
+//    this.lt = -amount;
+   
+// } 
+
+// function statement() {
+//     console.log("Balance =" + this.balance);
+//     console.log("Last Transaction =" + this.lt);
+    
+// }
+
+// function Piggybank() {
+//     this.balance = 0;
+//     this.lt = 0;
+// }
+
+// Piggybank.prototype.deposit= deposit;
+// Piggybank.prototype.withdraw= withdraw;
+// Piggybank.prototype.statement = statement;
+
+// var pg1 = new Piggybank();
+
+// pg1.deposit(100);
+// pg1.statement()
+// pg1.withdraw(40);
+// pg1.statement()
+
+// Here we have used prototype method which is inside functor which is a standard parent object in which we can add our child 
+// functions.
+//-------------------------------------------------------------------------------------------------------------------------------
+
+
+// function Piggybank() {
+//     this.balance = 0 ;
+//     this.lt = 0 ;
+// }
+
+// let pg1 = new Piggybank();
+
+// let pg2 = pg1;
+
+// function f1() {
+//     return pg1;
+// }
+// console.log(pg1);
+// pg1.balance=11;
+// console.log(pg2.balance);
+// f1().balance=22;
+// console.log(pg1.balance);
+// if (pg1 instanceof Piggybank){
+//     console.log("Obj1 is instance of Piggybank");
+
+// }
+// if (pg1 instanceof Object){
+//     console.log("Obj1 is instance of Object");
+// }
+//Here we have seen that multiple reference variables can point to same object i:e The address in one variable will get 
+// copied into another variable and hence they will point to the same object
+//------------------------------------------------------------------------------------------------------------------
